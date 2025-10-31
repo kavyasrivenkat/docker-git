@@ -2,14 +2,14 @@ pipeline {
     agent any
     environment {
         DOCKER_IMAGE = 'kavyasrimandala/node-docker'
-        DOCKER_CREDENTIALS = 'dockerhub'
+        DOCKER_CREDENTIALS = 'kavyasrimandala'
     }
 
     stages {
         stage('Checkout') {
             steps {
-                echo 'Checking out source code...'
-                git branch: 'main', url: 'https://github.com/docker-git/node-docker.git'
+                echo 'Checking out source code'
+                git branch: 'main', url: 'https://github.com/your-repo/node-docker.git'
             }
         }
 
@@ -22,7 +22,7 @@ pipeline {
 
         stage('Login to Docker Hub') {
             steps {
-                echo 'Logging in to Docker Hub...'
+                echo 'Logging in to Docker Hub'
                 withCredentials([usernamePassword(credentialsId: "$DOCKER_CREDENTIALS", usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                     sh 'echo $PASSWORD | docker login -u $USERNAME --password-stdin'
                 }
