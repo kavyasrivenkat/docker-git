@@ -1,8 +1,7 @@
 pipeline {
     agent any
-
     environment {
-        DOCKER_IMAGE = 'kavyasrimandala/node-app'
+        DOCKER_IMAGE = 'kavyasrimandala/node-docker'
         DOCKER_CREDENTIALS = 'dockerhub'
     }
 
@@ -10,7 +9,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 echo 'Checking out source code...'
-                git branch: 'main', url: 'https://github.com/your-repo/node-app.git'
+                git branch: 'main', url: 'https://github.com/docker-git/node-docker.git'
             }
         }
 
