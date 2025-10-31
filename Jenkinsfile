@@ -9,7 +9,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 echo 'Checking out source code'
-                git branch: 'main', url: 'https://github.com/your-repo/node-docker.git'
+                git branch: 'main', url: 'https://github.com/kavyasrivenkat/docker-git'
             }
         }
 
